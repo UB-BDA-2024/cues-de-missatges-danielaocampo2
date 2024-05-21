@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from shared.database import SessionLocal
 from shared.publisher import Publisher
 from shared.redis_client import RedisClient
+from shared.cassandra_client import CassandraClient
 from shared.mongodb_client import MongoDBClient
 from shared.elasticsearch_client import ElasticsearchClient
 from shared.sensors.repository import DataCommand
@@ -29,7 +30,13 @@ def get_timescale():
         yield ts
     finally:
         ts.close()
-
+        
+def get_cassandra_client():
+    cassandra = CassandraClient(hosts=["cassandra"])
+    try:
+        yield cassandra
+    finally:
+        cassandra.close()
 # Dependency to get redis client
 
 def get_redis_client():
