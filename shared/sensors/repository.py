@@ -8,6 +8,7 @@ from shared.mongodb_client import MongoDBClient
 from shared.redis_client import RedisClient
 from shared.sensors import models, schemas
 from shared.timescale import Timescale
+from shared.elasticsearch_client import ElasticsearchClient
 
 import json
 
