@@ -37,7 +37,7 @@ def execute_view_creation():
     try:
         with conn.cursor() as cursor:
             with open('./views/views_migrations.sql', 'r') as file:
-                sql_commands = file.read().split(';')  # Dividir en comandos individuales
+                sql_commands = file.read().split(';')  
                 for command in sql_commands:
                     if command.strip():
                         cursor.execute(command)

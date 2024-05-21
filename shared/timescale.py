@@ -14,6 +14,10 @@ class Timescale:
         
     def getCursor(self):
             return self.cursor
+    
+    def enable_autocommit(self, enable=True):
+        """ Enable or disable autocommit mode on the connection. """
+        self.conn.autocommit = enable
 
     def close(self):
         self.cursor.close()
@@ -22,13 +26,17 @@ class Timescale:
     def ping(self):
         return self.conn.ping()
     
-    def execute(self, query):
-       return self.cursor.execute(query)
+    def execute(self, query,  params=None):
+       return self.cursor.execute(query, params)
+        
+    def fetch_all(self, query, params=None):
+        self.cursor.execute(query, params)
+        return self.cursor.fetchall()
+
+    def fetch_one(self, query, params=None):
+        self.cursor.execute(query, params)
+        return self.cursor.fetchone() 
     
     def delete(self, table):
         self.cursor.execute("DELETE FROM " + table)
         self.conn.commit()
-
-        
-     
-         
