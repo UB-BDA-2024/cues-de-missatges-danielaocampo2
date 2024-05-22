@@ -5,7 +5,7 @@ from shared.redis_client import RedisClient
 from shared.mongodb_client import MongoDBClient
 from shared.elasticsearch_client import ElasticsearchClient
 from shared.timescale import Timescale
-from apsharedp.cassandra_client import CassandraClient
+from shared.cassandra_client import CassandraClient
 import time
 
 client = TestClient(app)
