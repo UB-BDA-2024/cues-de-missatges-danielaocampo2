@@ -6,7 +6,7 @@ import psycopg2
 from yoyo import get_backend, read_migrations, step
 
 app = fastapi.FastAPI(title="Senser", version="0.1.0-alpha.1")
-from app.cassandra_client import CassandraClient
+from shared.cassandra_client import CassandraClient
 def get_database_connection_string():
     retries = 5
     while retries:
