@@ -20,8 +20,8 @@ def clear_dbs():
     mongo = MongoDBClient(host="mongodb")
     mongo.clearDb("sensors")
     mongo.close()
-    es = ElasticsearchClient(host="elasticsearch")
-    es.clearIndex("sensors")  
+    # es = ElasticsearchClient(host="elasticsearch")
+    # es.clearIndex("sensors")  
     
 
 def test_create_sensor_temperatura():
